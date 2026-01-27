@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #743089;
+        padding: 20px; 
+    }
+    .container{
+        position: relative;
+        background-color: #CEA2FD;
+        width: 100%;
+        max-width: 400px; 
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(90, 1, 60, 0.15);
+        overflow: hidden;
+    }
+
+    .container::before {
+        content: "";
+        position: absolute;
+        top: -2px; left: -2px; right: -2px; bottom: -2px;
+        border: 3px solid transparent;
+        border-radius: 18px;
+        background: linear-gradient(90deg, #650372, #e350be, #8d0276);
+        background-size: 200% 200%;
+        animation: borderAnim 5s linear infinite;
+        z-index: -1;
+    }
+    @keyframes borderAnim {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    h1{
+        color:#4B0082;
+        font-size: 2rem; 
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .options label{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: color 0.3s;
+        color: #333333;
+        width: 100%; 
+        background: #f9f9f9;
+        padding: 8px 12px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+    }
+    .options label:hover{
+        background: #e0d0f7;
+    }
+    .options label span{
+        flex: 1; 
+    }
+
+    .btns{
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    button{
+        border:none;
+        padding: 10px 15px;
+        min-width: 120px;
+        border-radius: 8px;
+        cursor: pointer;
+        background:#4B0082;
+        color: white;
+        font-weight: 600;
+        transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    button:hover{
+        transform: scale(1.05);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+        background:#8968CD;
+    }
+
+    #toast{
+        opacity: 0;
+        color: #fff;
+        background-color: #4a90e2;
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 28px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        font-size: 14px;
+        transition: opacity 0.5s, transform 0.5s;
+        z-index: 1000;  
+    }
+
+    /* Media Queries for small devices */
+    @media (max-width: 500px){
+        .container{
+            padding: 20px;
+        }
+        h1{
+            font-size: 1.6rem;
+        }
+        button{
+            min-width: 100px;
+            padding: 8px 12px;
+        }
+    }
+</style>
+
+
+<body>
+
+    
+    <div class="container">
+        <h1>Quiz App</h1>
+    <div class="question">
+        <!-- Question text JS se aayega -->
+    </div>
+
+    <!-- Options Area -->
+    <div class="options">
+
+        <label>
+            <input type="radio" name="option">
+            <span>Option A</span>
+        </label>
+
+        <label>
+            <input type="radio" name="option">
+            <span>Option B</span>
+        </label>
+
+        <label>
+            <input type="radio" name="option">
+            <span>Option C</span>
+        </label>
+
+        <label>
+            <input type="radio" name="option">
+            <span>Option D</span>
+        </label>
+
+    </div>
+
+    <div class="btns">
+     <button class="Previous-btn">Previous</button>
+    <!-- Next Button -->
+    <button class="next-btn">Next</button>
+    </div>
+    
+</div>
+<div id="toast">
+    Quiz Completed!
+</div>
+
+</body>
+<script src="script.js"></script>
+</html>
